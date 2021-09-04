@@ -24,11 +24,31 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
   Screen
 >;
 
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+export type MainTabParamList = {
+  Camera: undefined;
+  Chats: undefined;
+  Status: undefined;
+  Calls: undefined;
+  Root: undefined;
 };
 
+export type User = {
+  id: String;
+  name: String;
+  imageUri: String;
+}
+
+export type Message = {
+  id: String;
+  content: String;
+  createdAt: number;
+  
+}
+export type ChatRoom = {
+  id: String;
+  users: [User];
+  lastMessage: Message;
+}
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
